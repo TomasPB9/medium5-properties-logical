@@ -1,0 +1,283 @@
+:root{
+  --black10: #212121;
+  --black20: #424242;
+  --black30: #616161;
+  --black40: #E5E5E5;
+  --black50: white;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+  color: var(--black10);
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background: var(--black50);
+}
+
+a{
+  color: var(--black30);
+}
+
+.header-content{
+  padding-inline: 16px;
+}
+
+.header-content summary:nth-child(1){
+  margin-block-start:24px ;
+}
+
+header{
+  margin-block-start: 56px;
+  font-size: 14px;
+  color: var(--black30);
+}
+
+header li{
+  margin-block-end: 16px;
+}
+
+header nav{
+
+  border-left:4px solid #C4C4C4;
+  padding-inline-start: 16px;
+  margin-inline-start: 0px;
+}
+
+header nav details summary {
+  /* margin-block-start: 96px; */
+  font-weight: bold;
+}
+
+h1{
+  color: var(--black10);
+  font-size: 60px;
+  font-weight: 400;
+  margin-block-start: 120px;
+  margin-block-end: 16px;
+}
+
+h2{
+  color: var(--black20);
+  font-size: 2em;
+  font-weight: normal;
+
+}
+
+h3{
+  margin-block: 16px;
+  font-size: 1.5em;
+  font-weight: normal;
+  position: sticky;
+  top: 0;
+  background: var(--black50);
+}
+
+hr{
+  margin-block: 64px;
+  border: 1px solid rgba(97, 97, 97, 0.2);
+}
+
+pre{
+  font-weight: normal;
+  line-height: 24px;
+  background: var(--black40);
+  padding-block: 40px;
+  padding-inline-start: 40px;
+  padding-inline-end: 415px;
+  overflow: auto;
+  border-radius: 8px;
+  margin-block-end: 40px;
+}
+
+p{
+  font-weight: normal;
+  font-size: 1em;
+  color: var(--black20);
+  line-height: 24px;
+}
+
+.section-content img{
+  margin-block-start: 16px;
+  margin-block-end: 40px;
+  max-inline-size: 100%;
+}
+
+.section-content {
+  counter-reset: titleList;
+}
+
+.section-content h3{
+  counter-increment: titleList;
+}
+
+.section-content h3::before{
+  content: ""counter(titleList,decimal) ". ";
+}
+
+blockquote{
+  margin-block: 80px;
+  font-size: 1.5em;
+  line-height: 32px;
+  border-left:4px solid var(--black10);
+  padding-inline-start: 16px;
+  margin-inline-start: 0;
+}
+
+blockquote p{
+  color: var(--black20);
+}
+
+blockquote p span{
+  color: var(--black30);
+}
+
+blockquote p span::before{
+  content: "- ";
+  color: var(--black30);
+}
+
+.debug{
+  border: 1px solid red;
+}
+
+.main-content{
+  padding-inline: 16px;
+}
+
+.section-content-last{
+  margin-block-start: 162.53px;
+  margin-block-start: 40px;
+}
+
+.section-content-last h2{
+  font-size: 2em;
+  font-weight: normal;
+  color: var(--black10);
+  margin-block-end: 40px;
+}
+
+.section-content-last h3{
+  font-size: 24px;
+  font-weight: normal;
+  color: var(--black20);
+}
+
+.section-content-last h3::before{
+  content: "";
+}
+
+.section-content-last p{
+  line-height: 28.13px;
+  margin-block-end:16px;
+}
+
+.section-content-last ol,ul{
+  margin-block-end: 40px;
+  padding-inline-start: 16px;
+}
+
+.section-content-last li{
+  font-weight: normal;
+  color: var(--black20);
+  line-height: 24px;
+  padding-inline-start: 0;
+}
+
+.section-content-last ul li{
+  margin-block-end: 16px;
+}
+
+.slider-container{
+  display: block;
+  overflow: auto;
+  scroll-behavior: smooth;
+  /* white-space: nowrap; => si encuentra una frontera(limite) en lugar de mandar ese elemento para abajo  con esta propiedad
+  (white-space)no lo manda a la siguiente linea y teniendo el overflow provoca que no se desborde y exista el desplazamiento  */
+  white-space: nowrap;
+  /* para que no exista el espacio para separar elementos que el navegador pone por default ponemos => font-size: 0;*/
+  font-size: 0;
+}
+
+.video{
+  margin: 0;
+  display: inline-block;
+  width:100%;
+  height: 450px;
+  /* proporcion en la que normalmente estan los videoss */
+  aspect-ratio: 16/9;
+}
+
+.slider-bullet-list{
+  text-align: center;
+  margin-block-start: 16px;
+}
+
+.slider-bullet{
+  display: inline-block;
+  inline-size: 15px;
+  block-size: 15px;
+  background:var(--black20);
+  border-radius: 50%;
+}
+
+.ancla-github{
+  display: block;
+  margin-block: 24px;
+  font-size: 1.5em;
+}
+
+.main{
+  /* para que sea responsivo*/
+  /* max-width: 902px; => es con valores fisicos */
+  max-inline-size: 902px;
+
+  /* centra si es un elemento en bloque */
+  margin: auto;
+  /* overflow:auto; => esconde el contenido que se sale de su contenedor, pero permite scrollear dentro de su contenedor
+  para revisar el contenido dentro del tamaño de su contenedor */
+  /* overflow: auto; */
+}
+
+.form input{
+  border-radius: 90px;
+  border:0.5px solid var(--black30);
+  box-sizing: border-box;
+  padding-inline: 16px;
+  padding-block:12px ;
+  width: 337px;
+  margin-block-end: 24px;
+  margin-inline-end: 16px;
+}
+
+/* Para cambiar el color del texto que contiene placeholderm  */
+.form input::-webkit-input-placeholder{
+  color:var(--black20);
+}
+
+/* selector de atributos (solo afecta los elementos que tengan ese atributo) */
+.form input[type="submit"]{
+  background: black;
+  color: var(--black50);
+  font-weight: 500;
+  border: none;
+  margin-inline-start: -138px;
+  width: 118px;
+}
+
+/* RESPONSIVE DESIGN (media queries) */
+/* @media print() => afecta impresion */
+/* @media all() => afecta todos los dispositivos */
+/* @media screen() => afecta solo la pantalla */
+@media screen and (min-width:1366px){
+
+  .header{
+    inset-block-start: -45px;
+  }
+
+  .header-content{
+    position: relative;
+    padding-inline: 0;
+  }

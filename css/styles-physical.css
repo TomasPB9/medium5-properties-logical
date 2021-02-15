@@ -1,0 +1,300 @@
+/* importar fuentes de que tenemos guardadas de forma local */
+@font-face{
+  font-family: charter;
+  src: url('../fonts/charter-regular.otf');
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face{
+  font-family: charter;
+  src: url('../fonts/charter-italic.otf');
+  font-style: italic;
+  font-weight: 400;
+}
+@font-face{
+  font-family: charter;
+  src: url('../fonts/charter-bold.otf');
+  font-style: normal;
+  font-weight: bold;
+}
+@font-face{
+  font-family: charter;
+  src: url('../fonts/charter-bold-italic.otf');
+  font-style: italic;
+  font-weight: bold;
+}
+
+/* root al ponerlo como pseudo clase tiene un peso mayor que html */
+/* por lo que renderiza 18px en todo el documento */
+:root{
+  font-size: 18px;
+  /* declaro variable con nombre de colorcito */
+  --gray30 :#212121;
+  --gray20:#212429;
+  --gray10:#616161;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+  color: var(--gray30);
+  font-family: 'Roboto', sans-serif;
+  /* font-family:charter; */
+  margin: 0;
+}
+
+a{
+  color: var(--gray30) ;
+}
+
+header{
+  /* modificar ese color solo en esta area y no afecta a las demás del color que se desclaro */
+  /* --gray:10:red; */
+  font-size: 14px;
+  width: 188px;
+  color: var(--gray10);
+  /* position:relative => tiene 5 propiedad (top,left,bottom,right,z-index) */
+  /* sirve para mover el elemento sin que el lugar fisico en cual esta ubicado se altere */
+  /* el espacio que ocupaba ese elemento no se altera, ahi se queda */
+  /* z-index sirve para poner elementos encima de otros (z-index:-1; => lo pone atras de otro elemento) */
+  /* position: relative; */
+  /* top: 200px; */
+  /* right: 50px; */
+  /* bottom: 100px; */
+  /* z-index: -1;  => lo pone atras de los elementos*/
+  /* z-index: 1;  => lo pone adelante de los elementos*/
+
+  /* position absolute => el elemento se ubica en el espacion que le tocaba en el DOM y se encima con el resto de elementos  */
+  /* maneja 4 propiedades (left,top,right,bottom) */
+  /* position: absolute; */
+  /* bottom: 0; */
+  /* right: 0; */
+  /* lo manda hasta arriba */
+  /* top: 0; */
+
+  /* position:fixed; => persigue si hacemos scroll en el website tiene 5 propiedades (top,left,bottom,right,z-index) */
+  /* position: fixed; */
+  /* left: 0; */
+  /* z-index: 1  => lo pone adelante de los elementos;*/
+
+  /* position: sticky; =>ocupa todo el ancho y nos persigue pero necesitamos ponerle un valor a top
+  en este caso 0, y cuando scrolleamos se pega arriba y nos persigue*/
+  position: absolute;
+  top: 64px;
+  left: -210px;
+  z-index: 1;
+  /* position: absolute;
+  position: fixed;
+  position: sticky; */
+
+}
+
+header a{
+  color:var(--gray10);
+  text-decoration: none;
+}
+
+header a:hover{
+  color: var(--gray30);
+}
+
+nav details summary{
+  font-weight: bold;
+  line-height: 24px;
+}
+
+header li{
+  margin-bottom: 16px;
+}
+
+h1{
+  font-size: 60px;
+  /* margin:top right bottom left; */
+  /* margin: top/botttom right/left */
+  margin-top: 64px;
+  margin-bottom: 16px;
+  font-weight: normal;
+  /* border: 10px solid red;  */
+}
+
+/* h1~p{
+  margin-bottom:64px ;
+} */
+
+hr{
+  /* background: red; */
+  margin:64px 0 ;
+}
+
+h2{
+  /* 16px=1em; */
+  /* porque 32px/16px=2em */
+  font-size: 2em;
+  margin: 64px 0 40px;
+  font-weight: normal;
+}
+
+h3{
+  /* font-size: 24px; */
+  /* porque 24px/16px=1.5em */
+  font-size: 1.5em;
+  margin-top: 16px;
+  margin-bottom: 24px;
+  font-weight: normal;
+  /* postiton para que nos persiguan los titulos h3 y cambie al titulo nuevo cada vez que llegue al otro h3 */
+  position: sticky;
+  top: 0;
+  background: white;
+}
+
+pre{
+  background: #FEC62E;
+  padding: 40px;
+  font-family: 'Roboto';
+  line-height: 24px;
+}
+
+blockquote{
+  font-size: 24px;
+  margin: 32px 0;
+  padding-left: 16px;
+  line-height: 24px;
+  /* border: 1px solid red; */
+  /* border-top:1px solid pink; */
+  /* border-top-color:aqua */
+  /* border-top-style: dashed; */
+  /* border-radius: 50px 100px 10px 0; => redondea las esquinas de esq.sup.izq. y sigue en sentido de manecillas del reloj*/
+  border-left:4px solid var(--gray30);
+}
+
+blockquote span{
+  color:var(--gray10)
+}
+
+blockquote span::before{
+  content: " - ";
+}
+
+.header{
+  position: sticky;
+  top: 0;
+}
+
+.header-content{
+  position: relative;
+}
+
+/* tecnica del wrapper para arquitectutra escalable */
+.main{
+  /* border: 1px solid red; */
+  /* background:linear-gradient(to top, rgba(255,255,255,0.3),transparent), url('../images/pattern.png'); */
+}
+
+.wrapper{
+  width: 902px;
+  margin:auto;
+}
+
+.main-content{
+  background:white;
+}
+
+/* ejemplo tecnica del wrapper (para tener background diferente en cada seccion) */
+.title{
+  background: red;
+}
+
+.subtitle{
+  background: blue;
+}
+
+.services{
+  background: pink;
+}
+
+
+.debug{
+  /* se puede usar cualquiera de las 3 opciones para identificar el elemento a debugear */
+  box-shadow: inset 0 0 0 50px red;
+  outline: 1px solid blue;
+  border: 1px solid  !important;
+}
+
+.hero{
+  /* degrada la imagen de abajo hacia arriba, el color de abajo lo pone blanco (255,255,255) con alfa(transparencia de 0.3)
+  y el color que espera arriba lo pone transparente */
+  background:linear-gradient(to top, rgba(255,255,255,0.3),transparent), url('../images/pattern.png');
+  /* no repite la imagen para llebar el espacio del background definido */
+  /* background-repeat: no-repeat; */
+
+  /* posiciona la imagen que definimos en el fondo del centro de las dimensiones que definimos */
+  /* background-position: center; */
+
+  /* hace que la imagen se expanda sin multipicarse */
+  /* background-size: cover; */
+
+  /* background-position: left top; => posiciona la imagen en la parte superior izquierda*/
+  /* background-position: left 50px top 50px; => parte superior izq y la recorre 50px y 50px para abajo */
+  height: 350px;
+}
+
+.section-content:first-of-type{
+  /* background: red; */
+  margin: 0;
+}
+
+.section-content{
+  margin-top: 164px;
+  /* se pone position:relative => para poder mover el elemento que tiene position:absolute en sus 4 coordenadas
+  dentro de su contenedor que lo envuelve */
+  position: relative;
+}
+
+.section-content ol li{
+  line-height: 24px;
+}
+.section-content ul li{
+  margin-bottom: 16px;
+}
+
+.section-content+hr{
+  display: none;
+}
+
+.section-content img{
+  margin-top: 40px;
+}
+
+/*  */
+.section-content{
+  counter-reset: titleList;
+}
+
+.section-content h3{
+  counter-increment: titleList;
+  /* background: red; */
+  padding-bottom: 8px;
+}
+
+  .section-content h3::before{
+  /*  */
+  content:counter(titleList,decimal) " . ";/* o upper-roman para que los ponga con números romanos */
+}
+
+  .section-content h3::after{
+  /* siempre debe de ir content aunque sea vacío */
+content: '';
+width: 80px;
+height: 4px;
+background:var(--gray30);
+position: absolute;
+left: 0;
+bottom: 0;
+}
+
+/* cuando seleccionas sobre el documento se sombrea de color azul */
+/* ::selection{
+  background: blue;
+} */

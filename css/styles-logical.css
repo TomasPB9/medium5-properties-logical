@@ -1,0 +1,389 @@
+/* importar fuentes de que tenemos guardadas de forma local */
+@font-face{
+  font-family: charter;
+  src: url('../fonts/charter-regular.otf');
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face{
+  font-family: charter;
+  src: url('../fonts/charter-italic.otf');
+  font-style: italic;
+  font-weight: 400;
+}
+@font-face{
+  font-family: charter;
+  src: url('../fonts/charter-bold.otf');
+  font-style: normal;
+  font-weight: bold;
+}
+@font-face{
+  font-family: charter;
+  src: url('../fonts/charter-bold-italic.otf');
+  font-style: italic;
+  font-weight: bold;
+}
+
+/* root al ponerlo como pseudo clase tiene un peso mayor que html */
+/* por lo que renderiza 18px en todo el documento */
+:root{
+  font-size: 18px;
+  /* declaro variable con nombre de colorcito */
+  --white30 :white;
+  --white20:#A5A3A5;
+  --white10: #3A3539;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+  color: var(--white30);
+  margin: 0;
+  font-family: 'Nunito', sans-serif;
+  background: #251F24;
+  /* font-family:charter; */
+  /* margenes con propiedades logicas */
+   /* margin-inline: 100px; */
+   /* margin-block: 100px; */
+   /* margin-block-start: 100px; */
+   /* margin-block-end: 50px; */
+}
+
+a{
+  color: var(--white30) ;
+}
+
+.header{
+  /* position: sticky; */
+  /* inset-block-start: -45px; */
+}
+
+.header-content{
+  padding-inline: 20px;
+  /* position: relative; */
+  /* inset-block-start:65px; */
+
+}
+
+header{
+  margin-block-start: 20px;
+  /* modificar ese color solo en esta area y no afecta a las demás del color que se desclaro */
+  /* --white:10:red; */
+  font-size: 14px;
+  color: var(--white);
+  /* position: absolute; */
+  /* top */
+  /* inset-block-start:0px; */
+  /* bottom */
+  /* inset-block-end: ; */
+  /* left */
+  /* inset-inline-start: -208px; */
+  /* right */
+  /* inset-inline-end: ; */
+  /* inline-size: 188px; */
+}
+
+header li{
+  color: var(--white20);
+  margin-block-end: 16px;
+}
+
+header a{
+  color:var(--white20);
+  text-decoration: none;
+}
+
+header a:hover{
+  color: var(--white30);
+}
+
+nav details summary{
+  font-weight: bold;
+}
+
+h1,h2,h3{
+  /* font-weight: normal; */
+}
+
+h1{
+  /* font-size: 60px; */
+  font-size: 40px;
+  margin-block-start: 20px;
+  margin-block-end: 16px;
+
+  /* alinear textos con valores logicos */
+  /* text-align: start; */
+  /* text-align: end; */
+  /* text-align: justify; */
+}
+
+h2{
+  /* 16px=1em; */
+  /* porque 32px/16px=2em */
+  font-size: 2em;
+  margin-block: 40px;
+}
+
+h3{
+  /* font-size: 24px; */
+  /* porque 24px/16px=1.5em */
+  font-size: 1.5em;
+  font-weight: 600;
+  margin-block: 16px;
+  /* se queden pegados los h3 y cambien conforme llegamos a otro h3 */
+  position: sticky;
+  top: 0;
+  background: #251F24;
+}
+
+hr{
+  margin-block: 40px;
+  border-color: rgba(97, 97, 97, 0.2);
+}
+
+pre{
+  background: var(--white10);
+  padding:40px;
+  overflow: auto;
+  border-radius: 8px;
+  border: 1px solid red;
+  /* propiedades logicas en los bordes */
+  border-inline-start: 5px solid blue;
+  border-inline-end: 5px solid blueviolet;
+  border-block-start: 5px solid orange;
+  border-block-end: 5px solid red;
+  border: 10px solid #5551FF;
+  box-shadow: -10px 10px 0 0 #ABAAF6;
+  margin-block-end: 30px;
+
+  /* hace circulo */
+  /* border-radius: 50%; */
+  /* inline-size: 400px; */
+  /* block-size: 400px; */
+
+  /* border-start-start-radius: 60px; => todavia no lo soporta el navegador */
+}
+
+p{
+  color: var(--white20);
+}
+
+.hero{
+  /* degrada la imagen de abajo hacia arriba, el color de abajo lo pone blanco (255,255,255) con alfa(transparencia de 0.3)
+  y el color que espera arriba lo pone transparente */
+  background: linear-gradient(96.07deg, #314755 30.63%, #26A0DA 102.18%);
+  /* no repite la imagen para llebar el espacio del background definido */
+  /* background-repeat: no-repeat; */
+
+  /* posiciona la imagen que definimos en el fondo del centro de las dimensiones que definimos */
+  /* background-position: center; */
+
+  /* hace que la imagen se expanda sin multipicarse */
+  /* background-size: cover; */
+
+  /* background-position: left top; => posiciona la imagen en la parte superior izquierda*/
+  /* background-position: left 50px top 50px; => parte superior izq y la recorre 50px y 50px para abajo */
+  block-size: 50px;
+}
+
+.section-content img{
+  margin-block-start: 40px;
+  display: block;
+  /* para que sea responsivo las imagenes*/
+  /* max-width: 902px; => es con valores fisicos */
+  max-inline-size: 100%;
+}
+
+.section-content{
+  counter-reset: titleList;
+}
+
+.section-content h3{
+  counter-increment: titleList;
+}
+
+  .section-content h3::before{
+  /*  */
+  content:" - "counter(titleList,decimal) " . ";/* o upper-roman para que los ponga con números romanos */
+}
+
+/* crea un borde abajo de los h3 */
+  .section-content h3::after{
+  /* siempre debe de ir content aunque sea vacío */
+content: '';
+width: 32px;
+height: 4px;
+background:var(--white30);
+display: block;
+}
+
+blockquote{
+  margin-block-start: 80px;
+  margin-block-end: 63px;
+  background: var(--white10);
+  border-radius: 8px;
+  line-height: 32px;
+  font-size: 24px;
+  padding-inline-start: 24px;
+  padding-inline-end: 24px;
+  padding-block-start: 24px;
+  padding-block-end: 24px;
+}
+
+blockquote p{
+  color: var(--white30);
+}
+
+/* cuando seleccionas sobre el documento se sombrea de color azul */
+/* ::selection{
+  background: blue;
+} */
+
+/* clase para debugear y ver fronteras rapidamente */
+.debug{
+  background: red;
+}
+
+.main hr{
+  display: none;
+}
+
+.main{
+  /* border: 1px solid red; */
+}
+
+.wrapper{
+  /* border: 1px solid yellow; */
+  /* max-width: 902px; => es con valores fisicos */
+  /* inline-size: 902px; */
+  /* block-size: 100px; */
+
+  /* para que sea responsivo */
+  /* max-width: 902px; => es con valores fisicos */
+  max-inline-size: 902px;
+
+  /* centra si es un elemento en bloque */
+  margin: auto;
+  /* overflow:auto; => esconde el contenido que se sale de su contenedor, pero permite scrollear dentro de su contenedor
+  para revisar el contenido dentro del tamaño de su contenedor */
+  /* overflow: auto; */
+}
+
+.main-content{
+  /* border: 1px solid blue; */
+  padding-inline: 16px;
+}
+
+.slider{
+  /* border: 1px solid red; */
+}
+
+.slider-container{
+  /* border: 1px solid purple; */
+  /* block-size: 100px; */
+  display: block;
+  overflow: auto;
+  scroll-behavior: smooth;
+  /* white-space: nowrap; => si encuentra una frontera(limite) en lugar de mandar ese elemento para abajo  con esta propiedad
+  (white-space)no lo manda a la siguiente linea y teniendo el overflow provoca que no se desborde y exista el desplazamiento  */
+  white-space: nowrap;
+  /* para que no exista el espacio para separar elementos que el navegador pone por default ponemos => font-size: 0;*/
+  font-size: 0;
+}
+
+.video{
+  margin: 0;
+  /* border: 1px solid blue; */
+  /* con display:inset-block: ;
+  permite teener un elemento a la de otro elemento y tambien tienen la posibilidad de tener width, height, padding */
+  display: inline-block;
+  width: 100%;
+  height: 450px;
+  /* proporcion en la que normalmente estan los videoss */
+  aspect-ratio: 16/9;
+}
+
+.slider-bullet-list{
+  /* border: 1px solid red; */
+  text-align: center;
+  margin-block-start: 10px;
+}
+
+.slider-bullet{
+  display: inline-block;
+  inline-size: 15px;
+  block-size: 15px;
+  background: white;
+  border-radius: 50%;
+}
+
+.form input{
+  inline-size: 100%;
+  border: 1px solid var(--white30);
+  background:  #251F24;
+  border-radius: 8px;
+  box-sizing: border-box;
+  padding-inline: 16px;
+  padding-block:12px ;
+  color:var(--white30);
+  font-size: 16px;
+  display: block;
+  margin-block-end: 24px;
+}
+
+/* Para cambiar el color del texto que contiene placeholderm  */
+.form input::-webkit-input-placeholder{
+  color: var(--white20);
+}
+
+/* selector de atributos (solo afecta los elementos que tengan ese atributo) */
+.form input[type="submit"]{
+  background:#157EFB;
+  border: none;
+}
+
+/* RESPONSIVE DESIGN (media queries) */
+/* @media print() => afecta impresion */
+/* @media all() => afecta todos los dispositivos */
+/* @media screen() => afecta solo la pantalla */
+@media screen and (min-width:1366px){
+  .hero{
+    block-size: 350px;
+  }
+
+  .header{
+    position: sticky;
+    inset-block-start: -45px;
+  }
+
+  .header-content{
+    position: relative;
+    inset-block-start:65px;
+    padding-inline: 0;
+
+  }
+
+  header{
+    /* modificar ese color solo en esta area y no afecta a las demás del color que se desclaro */
+    /* --white:10:red; */
+    font-size: 14px;
+    color: var(--white);
+    position: absolute;
+    /* top */
+    inset-block-start:0px;
+    /* bottom */
+    /* inset-block-end: ; */
+    /* left */
+    inset-inline-start: -208px;
+    /* right */
+    /* inset-inline-end: ; */
+    inline-size: 188px;
+  }
+
+  h1{
+    font-size: 60px;
+    margin-block-start: 64px;
+  }
+}
